@@ -34,6 +34,7 @@ public class FeedFragment extends Fragment implements AbsListView.OnItemClickLis
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private static final String[][] DATA = new String[5][2];
 
     private OnFragmentInteractionListener mListener;
 
@@ -75,8 +76,22 @@ public class FeedFragment extends Fragment implements AbsListView.OnItemClickLis
         }
 
         // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
+
+        mAdapter = new ArrayAdapter<String[]>(getActivity(),
+                R.layout.feed_item_layout, DATA) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+
+                TextView name = (TextView) view.findViewById(R.id.feed_candidate_name);
+                TextView message = (TextView) view.findViewById(R.id.feed_candidate_message);
+
+                name.setText(DATA[position][0]);
+                message.setText(DATA[position][1]);
+
+                return view;
+            }
+        };
     }
 
     @Override
