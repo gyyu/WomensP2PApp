@@ -34,7 +34,8 @@ public class FeedFragment extends Fragment implements AbsListView.OnItemClickLis
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private static final String[][] DATA = new String[5][2];
+    private static final String[][] DATA = new String[3][2];
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -73,7 +74,20 @@ public class FeedFragment extends Fragment implements AbsListView.OnItemClickLis
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
+
+        //Load the hard coded data
+        DATA[0][0] = "Grace Mose";
+        DATA[0][1] = "Poverty is in our minds. Wealth is in our hands.";
+
+        DATA[1][0] = "Cindy Wafalu";
+        DATA[1][1] = "A man saying I have left the race. I am still running. Go vote.";
+
+        DATA[2][0] = "Hillary Clinton";
+        DATA[2][1] = "Cindy, it's normal to lose the first time. Keep going.";
+
+
 
         // TODO: Change Adapter to display your content
 
