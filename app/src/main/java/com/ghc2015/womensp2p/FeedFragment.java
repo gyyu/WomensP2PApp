@@ -34,7 +34,7 @@ public class FeedFragment extends Fragment implements AbsListView.OnItemClickLis
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private static final String[][] DATA = new String[3][2];
+    private static final String[][] DATA = new String[6][2];
 
 
     // private OnFragmentInteractionListener mListener;
@@ -87,7 +87,18 @@ public class FeedFragment extends Fragment implements AbsListView.OnItemClickLis
         DATA[2][0] = "Hillary Clinton";
         DATA[2][1] = "Cindy, it's normal to lose the first time. Keep going.";
 
+        DATA[3][0] = "Serah";
+        DATA[3][1] = "My opponent injected a plastic water bottle with drug - I spelt for three days," +
+                "everyone thought I was dead. We sent people to investigate, someone given him money" +
+                "to do that";
 
+        DATA[4][0] = "Lindy";
+        DATA[4][1] = "Many of the women I campaigned with are homeless now. No one told them that they " +
+                "could lose. I tell them to keep fighting but they feel so alone.";
+
+        DATA[5][0] = "Lindy";
+        DATA[5][1] = "Women share everything else. Childcare, resources... We must learn to also share " +
+                "power.";
 
         // TODO: Change Adapter to display your content
 

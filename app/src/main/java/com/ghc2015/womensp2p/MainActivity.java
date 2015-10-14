@@ -99,6 +99,7 @@ public class MainActivity extends FragmentActivity {
         static ArrayListFragment newInstance(int num){
             ArrayListFragment f = new ArrayListFragment();
             Bundle args = new Bundle();
+
             args.putInt("num", num);
             f.setArguments(args);
 
