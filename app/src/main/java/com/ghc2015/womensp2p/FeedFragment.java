@@ -37,7 +37,7 @@ public class FeedFragment extends Fragment implements AbsListView.OnItemClickLis
     private static final String[][] DATA = new String[3][2];
 
 
-    private OnFragmentInteractionListener mListener;
+    // private OnFragmentInteractionListener mListener;
 
     /**
      * The fragment's ListView/GridView.
@@ -92,7 +92,7 @@ public class FeedFragment extends Fragment implements AbsListView.OnItemClickLis
         // TODO: Change Adapter to display your content
 
         mAdapter = new ArrayAdapter<String[]>(getActivity(),
-                R.layout.feed_item_layout, DATA) {
+                R.layout.feed_item_layout, R.id.feed_candidate_name, DATA) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
@@ -126,27 +126,27 @@ public class FeedFragment extends Fragment implements AbsListView.OnItemClickLis
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        try {
+        /*try {
             mListener = (OnFragmentInteractionListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
-        }
+        }*/
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        // mListener = null;
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (null != mListener) {
+        /* if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
             mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
-        }
+        }*/
     }
 
     /**

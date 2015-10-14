@@ -45,9 +45,11 @@ public class MainActivity extends FragmentActivity {
             }
         };
 
+        String[] tabTitles = new String[] {"Candidates", "Reports", "Supporters"};
+
         for(int i=0; i<3; i++)
         {
-            actionBar.addTab(actionBar.newTab().setText("Tab"+(i+1)).setTabListener(tabListener));
+            actionBar.addTab(actionBar.newTab().setText(tabTitles[i]).setTabListener(tabListener));
         }
     }
 
