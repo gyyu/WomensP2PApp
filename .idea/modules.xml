@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GHCOSD.iml" filepath="$PROJECT_DIR$/GHCOSD.iml" />
       <module fileurl="file://$PROJECT_DIR$/WomensP2P.iml" filepath="$PROJECT_DIR$/WomensP2P.iml" />
       <module fileurl="file://$PROJECT_DIR$/WomensP2PApp.iml" filepath="$PROJECT_DIR$/WomensP2PApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
