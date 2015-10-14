@@ -1,17 +1,54 @@
 package com.ghc2015.womensp2p;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.support.v4.app.*;
+import android.view.*;
+import android.widget.*;
+import java.util.*;
+import android.util.Log;
+import android.app.ActionBar;
 
-
-public class MainActivity extends Activity {
-
+public class MainActivity extends FragmentActivity {
+    ViewPager mViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+            @Override
+            public void onPageSelected(int position){
+                getActionBar().setSelectedNavigationItem(position);
+            }
+        });
+
+        final ActionBar actionBar = getActionBar();
+
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        ActionBar.TabListener tabListener = new ActionBar.TabListener(){
+            public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
+            public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+            }
+            public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+            }
+        };
+
+        for(int i=0; i<3; i++)
+        {
+            actionBar.addTab(actionBar.newTab().setText("Tab"+(i+1)).setTabListener(tabListener));
+        }
     }
 
 
@@ -36,4 +73,68 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public static class MyAdapter extends FragmentPagerAdapter {
+
+        public MyAdapter(FragmentManager fm){
+            super(fm);
+        }
+
+        @Override
+        public int getCount(){
+            return 3;
+        }
+
+        @Override
+        public Fragment getItem(int position){
+            return ArrayListFragment.newInstance(position);
+        }
+    }
+
+    public static class ArrayListFragment extends ListFragment{
+        int mNum;
+
+        static ArrayListFragment newInstance(int num){
+            ArrayListFragment f = new ArrayListFragment();
+            Bundle args = new Bundle();
+            args.putInt("num", num);
+            f.setArguments(args);
+
+            return f;
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
+            mNum = getArguments() != null ? getArguments().getInt("num") : 1;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+            View v = inflater.inflate(R.layout.fragment_pager_list, container, false);
+            View tv = v.findViewById(R.id.text);
+            ((TextView)tv).setText("Fragment #" + mNum);
+            return v;
+        }
+
+        @Override
+        public void onActivityCreated(Bundle savedInstanceState){
+            super.onActivityCreated(savedInstanceState);
+            ArrayList<String> list = new ArrayList<String>();
+            list.add("t1");
+            list.add("t2");
+            list.add("t3");
+            setListAdapter(new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1, list));
+
+        }
+
+        @Override
+        public void onListItemClick(ListView l, View v, int position, long id){
+            Log.i("FragmentList", "Item clicked: " + id);
+        }
+    }
+
+
 }
+
