@@ -4,30 +4,49 @@
     android:layout_height="match_parent"
     android:padding="8dp">
 
-    <RelativeLayout android:orientation="vertical" android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
         android:elevation="2dp"
+        android:orientation="vertical"
         android:padding="8dp">
 
-        <ImageView android:id="@+id/feed_image"
+        <ImageView
+            android:id="@+id/menu_item_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"/>
-        <TextView android:id="@+id/feed_candidate_name"
-            android:layout_height="wrap_content"
+            android:showAsAction="ifRoom"
+            android:actionProviderClass="android.widget.ShareActionProvider"
+            android:src="@drawable/ic_share_black_24dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
+        <ImageView
+            android:id="@+id/feed_image"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/feed_candidate_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_toRightOf="@id/feed_image"
-            android:textStyle="bold"
             android:paddingLeft="16dp"
             android:paddingTop="16dp"
-            android:text="Candidate Name"/>
+            android:text="Candidate Name"
+            android:textStyle="bold" />
 
-        <TextView android:id="@+id/feed_candidate_message"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/feed_candidate_message"
             android:layout_width="wrap_content"
-            android:layout_below="@id/feed_image"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/feed_image"
             android:padding="8dp"
-            android:text="Candidate's message goes here."/>
+            android:text="@string/message" />
     </RelativeLayout>
 </FrameLayout>

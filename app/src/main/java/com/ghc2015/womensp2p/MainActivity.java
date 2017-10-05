@@ -2,11 +2,13 @@ package com.ghc2015.womensp2p;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View.OnClickListener;
 import android.support.v4.app.*;
 import android.view.*;
 import android.widget.*;
@@ -28,6 +30,7 @@ public class MainActivity extends FragmentActivity {
                 getActionBar().setSelectedNavigationItem(position);
             }
         });
+
 
         final ActionBar actionBar = getActionBar();
 
@@ -51,7 +54,22 @@ public class MainActivity extends FragmentActivity {
         {
             actionBar.addTab(actionBar.newTab().setText(tabTitles[i]).setTabListener(tabListener));
         }
-    }
+        /*
+        ImageView imgClick = (ImageView) findViewById(R.id.menu_item_share);
+        imgClick.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send."); // Update with post text
+                shareIntent.setType("text/plain");
+                startActivity(Intent.createChooser(shareIntent, getString(R.string.message)));
+            }
+        });
+        */
+        }
+
 
 
     @Override

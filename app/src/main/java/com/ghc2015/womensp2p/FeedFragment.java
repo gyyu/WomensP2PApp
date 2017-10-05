@@ -101,6 +101,7 @@ public class FeedFragment extends Fragment implements AbsListView.OnItemClickLis
                 "power.";
 
         // TODO: Change Adapter to display your content
+        // TODO: Add custom images
 
         mAdapter = new ArrayAdapter<String[]>(getActivity(),
                 R.layout.feed_item_layout, R.id.feed_candidate_name, DATA) {
